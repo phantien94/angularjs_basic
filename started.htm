@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	 <script language="javascript" src="lib/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myapp">
+		<div ng-controller="vn">
+			<h2>Xin chào {{data.ten}} đến với {{data.trang}}</h2>
+		</div>
+		<div ng-controller="en">
+			<h3>Wellcome {{data.name}} to {{data.site}}</h3>
+		</div>
+		<script>
+			angular.module('myapp', []).controller("vn",function($scope){
+				$scope.data = {
+					ten: "các bạn",
+					trang: "trang web"
+				};
+			}).controller("en",function($scope){
+				$scope.data = {
+					name: "everybody",
+					site: "website"
+				}
+			});
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script>
+		angular.module('myapp', []).controller('mycontroller', ['$scope', function($scope){
+			var _name = 'tien'
+			$scope.user = {
+				name: function(newName){
+					return angular.isDefined(newName) ? (_name = newName) : _name;
+				}
+			};
+		}]);
+	</script>
+</head>
+
+<body ng-app="myapp">
+	<div ng-controller="mycontroller">
+		<form name="textForm">
+			<h5>Nhập nội dung của bạn</h5>
+			<input type="text" name="noidung" ng-model-options="{getterSetter: true}" ng-model="user.name" />
+
+			<h5>Nội dung bạn vừa nhập là</h5>
+			<span ng-bind="user.name()"></span>
+		</form>
+	</div>
+</body>

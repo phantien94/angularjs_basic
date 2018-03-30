@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script>
+		angular.module('myapp', [])
+		.controller('pattern', ['$scope', function($scope){
+			$scope.message = {
+				title : 'Trò chơi tính toán',
+				num1  : 'Số thứ 1',
+				num2  : 'Số thứ 2',
+				cong  : 'Phép cộng', 
+				tru   : 'Phép trừ', 
+				nhan  : 'Phép nhân', 
+				chia  : 'Phép chia'
+			};
+
+			$scope.styleresult = 'display:none';
+
+			$scope.show_result = function(){
+
+				//Validate đúng thì hiện result
+				if($scope.mathForm.$valid){
+					$scope.styleresult = 'display:block';
+
+					$scope.result = {
+						cong : parseInt($scope.number1) + parseInt($scope.number2),
+						tru : parseInt($scope.number1) - parseInt($scope.number2), 
+						nhan : parseInt($scope.number1) * parseInt($scope.number2), 
+						chia : parseInt($scope.number1) / parseInt($scope.number2)
+					};
+				}
+
+				//Validate sai thì ẩn result
+				else{
+					$scope.styleresult = 'display:none';
+				}
+			};
+		}]);
+	</script>
+
+	<style>
+            *{margin:0;}
+            body{padding: 20px}
+            .input {
+                -webkit-transition:all linear 0.5s;
+                transition:all linear 0.5s;
+                background: transparent;
+            }
+            .input.ng-invalid {
+                color:white;
+                background: red;
+            }
+   </style>
+</head>
+
+<body ng-app="myapp">
+	<form name="mathForm" ng-controller="pattern">
+		
+		<h2>{{message.title}}</h2>
+		<h5>{{message.num1}}</h5>
+		<input ng-model="number1" ng-pattern="/^[0-9]+$/" ng-required="true" ng-keyup="show_result()" class="input" />
+
+		<h2>{{message.title}}</h2>
+		<h5>{{message.num2}}</h5>
+		<input ng-model="number2" ng-pattern="/^[0-9]+$/" ng-required="true" ng-keyup="show_result()" class="input" />
+
+		<div style={{styleresult}}>
+			{{message.cong}} {{result.cong}} <br>
+			{{message.tru}} {{result.tru}} <br>
+			{{message.nhan}} {{result.nhan}} <br>
+			{{message.chia}} {{result.chia}}
+		</div>
+	</form>
+</body>

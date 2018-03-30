@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+	<div ng-app="info">
+		<div ng-controller="Infomation">
+			<p>
+				Họ tên: {{data.name}} <br>
+				Ngày sinh: {{data.birthday}} <br>
+				Số điện thoại: {{data.phone}} <br>
+				Email: {{data.mail}} <br>
+			</p>
+		</div>		
+	</div>
+	<script>
+			angular.module('info', []).controller('Infomation',function($scope){
+				$scope.data = {
+					name : "Phan Ngọc Thủy Tiên",
+					birthday : "02/10/1994",
+					phone : "090909090",
+					mail : "tienpnt102@gmail.com"
+				}
+			});
+	</script>
+</body>
+</html>

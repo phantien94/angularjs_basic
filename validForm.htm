@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		.my-form {
+			-webkit-transition:all linear 0.5s;
+            transition:all linear 0.5s;
+            background: transparent;
+		}
+
+		.my-form.ng-invalid{
+			background: red;
+		}
+	</style>
+	
+	<script>
+		angular.module('myapp', []).controller('FormController', ['$scope', function($scope){
+			
+		}]);
+	</script>
+
+
+</head>
+
+<body ng-app="myapp">
+	<form name="myForm" ng-controller="FormController" class="my-form">
+		Thông báo: <input name="input" ng-model="usertype" required><br>
+			<tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br>
+            <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br>
+            <tt>myForm.$valid = {{myForm.$valid}}</tt>
+	</form>
+</body>
+
+<html>

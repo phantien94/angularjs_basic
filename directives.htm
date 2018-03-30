@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script language="javascript">
+		angular.module('myapp',[]).controller('mycontroller', function($scope){
+			$scope.name = 'Welcome to ';
+		});
+	</script>
+</head>
+<body ng-app="myapp">
+	<div ng-controller="mycontroller">
+		<h2>Nhập nội dung: </h2>
+		<input type="text" ng-model="name">
+		<br>
+		<h2>Nội dung hiển thị: </h2>
+		<span ng-bind="name"></span>
+	</div>
+</body>

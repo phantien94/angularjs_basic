@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script>
+		angular.module('myapp', [])
+		.controller('patern', ['$scope', function($scope){
+			
+		}]);
+	</script>
+
+	<style>
+		.input{
+			 background: blue;
+			 color: white;
+		}
+		.input.ng-invalid{
+			background: red;
+			color: white;
+		}
+	</style>
+</head>
+
+<body ng-app="myapp">
+	<form name="testForm" ng-controller="patern">
+		<input ng-model="val" ng-pattern="/^[0-9]$/" name="testInput" class="input" />
+		
+	</form>
+</body>

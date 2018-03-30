@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		.show .ng-scope, .show.ng-scope{
+			border: 1px solid red;
+		}
+		.show .ng-scope .ng-scope{
+			border: 1px solid blue;
+			margin: 1px;
+		}
+	</style>
+</head>
+<body>
+	<div ng-app="myapp">
+		<div class="show">
+			<div ng-controller="mycontroller">
+				<div ng-controller="firstcontroller">
+					Hello {{name}}
+				</div>
+				<div ng-controller="secondcontroller">
+					Hello {{name}}
+				</div>
+			</div>
+
+			<script>
+				angular.module('myapp', []).controller('mycontroller', function($scope){
+					$scope.name = 'Tiên';
+				})
+				.controller('firstcontroller',function($scope){
+
+				})
+				.controller('secondcontroller',function($scope){
+
+				});
+			</script>
+		</div>
+		
+	</div>
+</body>
+</html>

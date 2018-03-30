@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+</head>
+<body>
+	<div ng-app="myapp">
+		<div ng-controller="mycontroller">
+			<p>Nhập tên của bạn: 
+				<input type="text" value="" ng-model="yourname">
+				<button ng-click="hello()">In ra câu chào</button>
+			</p>
+			<hr>
+			{{greeting}}
+		</div>
+
+		<script>
+			angular.module('myapp', [])
+			.controller('mycontroller', ['$scope', function($scope)
+			{
+				$scope.hello = function(){
+					$scope.greeting = 'Xin chào bạn ' + $scope.yourname;
+				};
+			}]);
+		</script>
+	</div>
+</body>
+</html>

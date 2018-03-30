@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script>
+		angular.module('myapp', []).controller('FormController', ['$scope', function($scope){
+			
+			//Tạo danh sách list
+			$scope.list = [];
+
+			//Nếu người dùng submit
+			$scope.submit = function(){
+
+				//Nếu người dùng có nhập nội dung vào input
+				if($scope.text){
+					//Thêm vào giá trị list đã tạo
+					$scope.list.push(this.text);
+
+					//Xóa dữ liệu đã điền trong input
+					$scope.text = '';
+				}
+			}
+
+		}]);
+	</script>
+</head>
+<body ng-app="myapp">
+	<form ng-submit="submit()" ng-controller="FormController">
+		Nhập tên sinh viên:
+		<input type="text" name="text" ng-model="text">
+		<input type="submit" value="Thêm" id="a"> <br>
+		Danh sách sinh viên:
+		<pre>list = {{list}}</pre>
+	</form>
+</body>
+</html>
