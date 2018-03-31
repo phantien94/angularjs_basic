@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		.ng-invalid {
+			color: red;
+		}	
+	</style>
+
+	<script>
+		angular.module('myapp', []).controller('FormController', ['$scope', function($scope){
+			$scope.login = function(){
+				if($scope.username=="admin" && $scope.password=="123456"){
+					alert("Đăng nhập thành công");
+				}
+				else{
+					alert("Đăng nhập thất bại");
+				}
+			}
+		}])
+	</script>
+</head>
+
+<body ng-app="myapp">
+	<form ng-controller="FormController" name="myForm" ng-submit="login()">
+		<p>Username</p>
+		<input name="userName" ng-model="username" ng-pattern="/^([a-Z0-9]+)$/" ng-trim=true required ng-minlenght="3" ng-maxlenght="10">
+
+		<p>Password</p>
+		<input type="text" name="passWord" ng-model="password" ng-trim=true required ng-minlenght="3" ng-maxlenght="10">
+		<br>
+		<br>
+		<input type="submit" name="login" value="Login">
+	</form>
+</body>
+</html>

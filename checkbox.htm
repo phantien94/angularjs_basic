@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script language="javascript" src="lib/angular.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+		.ng-invalid {
+			color: red;
+		}	
+	</style>
+
+	<script>
+		angular.module('myapp', []).controller('FormController', ['$scope', function($scope){
+			$scope.game = 'KHÔNG';
+			$scope.sport = 'KHÔNG';
+		}])
+	</script>
+</head>
+
+<body ng-app="myapp">
+	<h2>Sở thích của bạn</h2>
+	<form ng-controller="FormController" name="myForm" ng-submit="login()">
+		Chơi game <input type="checkbox" ng-model="game" ng-true-value="'CÓ'" ng-false-value="'KHÔNG'">
+		Thể thao <input type="checkbox" ng-model="sport" ng-true-value="'CÓ'" ng-false-value="'KHÔNG'">
+
+		<h4>Bạn đã chọn</h4>
+		<tt>Chơi game {{game}}</tt><br>
+		<tt>Thể thao {{sport}}</tt>
+	</form>
+</body>
+</html>
